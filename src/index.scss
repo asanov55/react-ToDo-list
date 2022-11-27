@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.todo {
+  overflow: auto;
+  min-height: 100vh;
+  font-size: 14px;
+  display: flex;
+  &__sidebar {
+    background-color: #e5e5e5;
+    width: 250px;
+    min-height: 100%;
+    border-right: 1px solid #f1f1f1;
+    padding: 60px 20px;
+  }
+  &__tasks {
+    flex: 1;
+    padding: 60px;
+    overflow: auto;
+  }
+}
+
+.button {
+  background: #4dd599;
+  border-radius: 4px;
+  color: #fff;
+  border: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: darken($color: #4dd599, $amount: 6%);
+  }
+  &:active {
+    background: darken($color: #4dd599, $amount: 10%);
+  }
+  &:disabled {
+    background: #d8d8d8;
+  }
+  &-grey {
+    background-color: #f4f6f8;
+    color: #444444;
+
+    &:hover {
+      background: darken($color: #f6f6f6, $amount: 4%);
+    }
+    &:active {
+      background: darken($color: #f6f6f6, $amount: 7%);
+    }
+  }
+}
+
+.field {
+  background: #ffffff;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 14px;
+  &:focus {
+    border-color: #dbdbdb;
+  }
+}
