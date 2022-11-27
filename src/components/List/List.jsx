@@ -14,6 +14,7 @@ function List({
   onRemove,
   onClickItem,
   activeItem,
+  onClick1,
 }) {
   const removeList = (item) => {
     if (window.confirm('Вы действительно хотите удалить список?')) {
@@ -37,7 +38,7 @@ function List({
             onClick={onClickItem ? () => onClickItem(item) : null}
           >
             <i>{item.icon ? item.icon : <Badge color={item.color.name} />}</i>
-            <span>
+            <span onClick={onClick1}>
               {item.name}
               {item.tasks && ` (${item.tasks.length})`}
             </span>

@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 import './App.scss';
+import './Menu.css';
+import bar from './assets/img/bar.png';
+import close1 from './assets/img/close.png';
 
 import { List, AddButtonList, Tasks } from './components';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
@@ -9,6 +12,7 @@ import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 function App() {
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
   let navigate = useNavigate();
   let location = useLocation();
@@ -118,8 +122,15 @@ function App() {
   }, [lists, location.pathname]);
   return (
     <div className="todo">
-      <div className="todo__sidebar">
+      <span className="menu-btn" onClick={() => setIsOpen(true)}>
+        <img src={bar} alt="bar" />
+      </span>
+      <div className={`Menu ${isOpen && 'open'}`}>
+        <span className="btn-close" onClick={() => setIsOpen(false)}>
+          <img src={close1} alt="close" />
+        </span>
         <List
+          onClick1={() => setIsOpen(false)}
           onClickItem={() => {
             navigate(`/`);
           }}
@@ -147,6 +158,7 @@ function App() {
 
         {lists ? (
           <List
+            onClick1={() => setIsOpen(false)}
             items={lists}
             isRemovable={true}
             onClickItem={(item) => {
