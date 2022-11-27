@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-ToDo-list/static/css/main.5ad08629.css",
-    "main.js": "/react-ToDo-list/static/js/main.e4cdd7e7.js",
+    "main.js": "/react-ToDo-list/static/js/main.16722f30.js",
     "static/media/close.svg": "/react-ToDo-list/static/media/close.ac7b9278cab353907f42c5983ebc5569.svg",
     "static/media/x.svg": "/react-ToDo-list/static/media/x.178189d50b83d1c06489167dc6ddec56.svg",
     "static/media/pen.svg": "/react-ToDo-list/static/media/pen.d48cb0239be10abedf14eb19ed430155.svg",
     "index.html": "/react-ToDo-list/index.html",
     "static/media/add.svg": "/react-ToDo-list/static/media/add.7cfa1c971b008d03a4c91cfa5937707f.svg",
     "main.5ad08629.css.map": "/react-ToDo-list/static/css/main.5ad08629.css.map",
-    "main.e4cdd7e7.js.map": "/react-ToDo-list/static/js/main.e4cdd7e7.js.map"
+    "main.16722f30.js.map": "/react-ToDo-list/static/js/main.16722f30.js.map"
   },
   "entrypoints": [
     "static/css/main.5ad08629.css",
-    "static/js/main.e4cdd7e7.js"
+    "static/js/main.16722f30.js"
   ]
 }
