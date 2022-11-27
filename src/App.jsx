@@ -19,11 +19,11 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/lists?_expand=color&_embed=tasks')
+      .get('https://bmx--kg.herokuapp.com/api/lists?_expand=color&_embed=tasks')
       .then(({ data }) => {
         setLists(data);
       });
-    axios.get('http://localhost:3001/colors').then(({ data }) => {
+    axios.get('https://bmx--kg.herokuapp.com/api/colors').then(({ data }) => {
       setColors(data);
     });
   }, []);
@@ -61,7 +61,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('http://localhost:3001/tasks/' + taskObj.id, {
+      .patch('https://bmx--kg.herokuapp.com/api/tasks/' + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -77,9 +77,11 @@ function App() {
         return item;
       });
       setLists(newList);
-      axios.delete('http://localhost:3001/tasks/' + taskId).catch(() => {
-        alert('Не удалось удалить задачу');
-      });
+      axios
+        .delete('https://bmx--kg.herokuapp.com/api/tasks/' + taskId)
+        .catch(() => {
+          alert('Не удалось удалить задачу');
+        });
     }
   };
   const onCompleteTask = (listId, taskId, completed) => {
@@ -96,7 +98,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('http://localhost:3001/tasks/' + taskId, {
+      .patch('https://bmx--kg.herokuapp.com/api/tasks/' + taskId, {
         completed,
       })
       .catch(() => {
@@ -136,7 +138,7 @@ function App() {
           }}
           items={[
             {
-              active: location.pathname === '/',
+              active: location.pathname === '',
               icon: (
                 <svg
                   width="14"
@@ -162,7 +164,7 @@ function App() {
             items={lists}
             isRemovable={true}
             onClickItem={(item) => {
-              navigate(`/lists/${item.id}`);
+              navigate(`lists/${item.id}`);
             }}
             activeItem={activeItem}
             onRemove={(id) => {
@@ -179,7 +181,7 @@ function App() {
         <Routes>
           <Route
             exact
-            path="/"
+            path=""
             element={
               <>
                 {lists &&
@@ -199,7 +201,7 @@ function App() {
             }
           />
           <Route
-            path="/lists/:id"
+            path="lists/:id"
             element={
               <>
                 {lists && activeItem && (
