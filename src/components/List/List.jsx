@@ -18,9 +18,11 @@ function List({
 }) {
   const removeList = (item) => {
     if (window.confirm('Вы действительно хотите удалить список?')) {
-      axios.delete(`http://localhost:3001/lists/` + item.id).then(() => {
-        onRemove(item.id);
-      });
+      axios
+        .delete(`https://todo-server.herokuapp.com/lists/` + item.id)
+        .then(() => {
+          onRemove(item.id);
+        });
     }
   };
 

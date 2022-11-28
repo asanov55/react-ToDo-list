@@ -19,11 +19,11 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('https://bmx--kg.herokuapp.com/api/lists?_expand=color&_embed=tasks')
+      .get('https://todo-server.herokuapp.com/lists?_expand=color&_embed=tasks')
       .then(({ data }) => {
         setLists(data);
       });
-    axios.get('https://bmx--kg.herokuapp.com/api/colors').then(({ data }) => {
+    axios.get('https://todo-server.herokuapp.com/colors').then(({ data }) => {
       setColors(data);
     });
   }, []);
@@ -61,7 +61,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('https://bmx--kg.herokuapp.com/api/tasks/' + taskObj.id, {
+      .patch('https://todo-server.herokuapp.com/tasks/' + taskObj.id, {
         text: newTaskText,
       })
       .catch(() => {
@@ -78,7 +78,7 @@ function App() {
       });
       setLists(newList);
       axios
-        .delete('https://bmx--kg.herokuapp.com/api/tasks/' + taskId)
+        .delete('https://todo-server.herokuapp.com/tasks/' + taskId)
         .catch(() => {
           alert('Не удалось удалить задачу');
         });
@@ -98,7 +98,7 @@ function App() {
     });
     setLists(newList);
     axios
-      .patch('https://bmx--kg.herokuapp.com/api/tasks/' + taskId, {
+      .patch('https://todo-server.herokuapp.com/tasks/' + taskId, {
         completed,
       })
       .catch(() => {
