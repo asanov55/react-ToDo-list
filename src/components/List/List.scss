@@ -19,15 +19,16 @@
     transition: background-color 0.15s ease-in-out;
 
     &:hover #{$self}__remove-icon {
-      opacity: 0.2;
+      opacity: 1;
+      color: black;
     }
 
     #{$self}__remove-icon {
-      opacity: 0;
+      fill: black !important;
       transition: opacity 0.15s ease-in-out;
 
       &:hover {
-        opacity: 0.8;
+        opacity: 1;
       }
     }
 

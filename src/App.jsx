@@ -138,7 +138,7 @@ function App() {
           }}
           items={[
             {
-              active: location.pathname === '',
+              active: location.pathname === '/',
               icon: (
                 <svg
                   width="14"

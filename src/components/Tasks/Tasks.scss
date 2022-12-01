@@ -15,11 +15,10 @@
     border-bottom: 1px solid #f2f2f2;
     &:hover {
       img {
-        opacity: 0.2;
+        opacity: 1;
       }
     }
     img {
-      opacity: 0;
       cursor: pointer;
       margin-left: 15px;
 
@@ -78,7 +77,9 @@
       align-items: center;
       margin-bottom: 15px;
       &:hover {
-        background-color: #c9d1d3;
+        transform: translateY(-10px);
+        border: 2px solid #c9d1d3;
+        border-radius: 5px;
       }
 
       &:hover &-actions {
@@ -96,7 +97,7 @@
           justify-content: center;
           width: 32px;
           height: 32px;
-          background-color: lighten(#c9d1d3, 2%);
+          background-color: lighten(#fff, 2%);
           border-radius: 6px;
           margin-left: 5px;
           cursor: pointer;
@@ -111,7 +112,7 @@
           svg {
             width: 11px;
             height: 11px;
-            opacity: 0.4;
+            opacity: 1;
           }
         }
       }
