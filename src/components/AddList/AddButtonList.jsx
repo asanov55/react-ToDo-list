@@ -85,35 +85,36 @@ function AddButtonList({ colors, onAdd }) {
           },
         ]}
       />
-      {visibalePopup && (
-        <div className="add-list__popup">
-          <img
-            onClick={onClose}
-            src={close}
-            className="add-list__popup-close-btn"
-          />
-          <input
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            className="field"
-            type="text"
-            placeholder="Название папки"
-          />
-          <div className="add-list__popup-colors">
-            {colors.map((color) => (
-              <Badge
-                onClick={() => setSelectedColor(color.id)}
-                key={color.id}
-                color={color.name}
-                className={selectedColor === color.id && 'active'}
-              />
-            ))}
-          </div>
-          <button onClick={addList} className="button">
-            {isLoading ? 'Добавление...' : 'Добавить'}
-          </button>
+
+      <div
+        className={visibalePopup ? 'add-list__popup active' : 'add-list__popup'}
+      >
+        <img
+          onClick={onClose}
+          src={close}
+          className="add-list__popup-close-btn"
+        />
+        <input
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          className="field"
+          type="text"
+          placeholder="Название папки"
+        />
+        <div className="add-list__popup-colors">
+          {colors.map((color) => (
+            <Badge
+              onClick={() => setSelectedColor(color.id)}
+              key={color.id}
+              color={color.name}
+              className={selectedColor === color.id && 'active'}
+            />
+          ))}
         </div>
-      )}
+        <button onClick={addList} className="button">
+          {isLoading ? 'Добавление...' : 'Добавить'}
+        </button>
+      </div>
     </div>
   );
 }

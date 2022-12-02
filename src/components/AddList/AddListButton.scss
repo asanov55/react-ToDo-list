@@ -1,15 +1,17 @@
 .add-list {
+  position: relative;
+
   &__popup {
+    position: absolute;
     width: 240px;
     height: 150px;
     background: #ffffff;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     padding: 18px;
-    position: relative;
-    box-sizing: border-box;
-    top: -15px;
-
+    left: -1000px;
+    top: 40px;
+    transition: 0.4s;
     .button {
       width: 100%;
       margin-top: 15px;
@@ -35,5 +37,8 @@
         border: 2px solid #525252;
       }
     }
+  }
+  &__popup.active {
+    left: 0px;
   }
 }

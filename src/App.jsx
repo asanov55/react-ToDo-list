@@ -165,6 +165,7 @@ function App() {
             isRemovable={true}
             onClickItem={(item) => {
               navigate(`lists/${item.id}`);
+              setActiveItem(item);
             }}
             activeItem={activeItem}
             onRemove={(id) => {
@@ -180,8 +181,7 @@ function App() {
       <div className="todo__tasks">
         <Routes>
           <Route
-            exact
-            path=""
+            path="/"
             element={
               <>
                 {lists &&
@@ -200,24 +200,18 @@ function App() {
               </>
             }
           />
-          <Route
-            path="lists/:id"
-            element={
-              <>
-                {lists && activeItem && (
-                  <Tasks
-                    list={activeItem}
-                    onAddTask={onAddTask}
-                    onEditTitle={onEditListTitle}
-                    onRemoveTask={onRemoveTask}
-                    onEditTask={onEditTask}
-                    onCompleteTask={onCompleteTask}
-                  />
-                )}
-              </>
-            }
-          />
         </Routes>
+
+        {lists && activeItem && (
+          <Tasks
+            list={activeItem}
+            onAddTask={onAddTask}
+            onEditTitle={onEditListTitle}
+            onRemoveTask={onRemoveTask}
+            onEditTask={onEditTask}
+            onCompleteTask={onCompleteTask}
+          />
+        )}
       </div>
     </div>
   );
