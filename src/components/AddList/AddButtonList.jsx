@@ -102,14 +102,15 @@ function AddButtonList({ colors, onAdd }) {
           placeholder="Название папки"
         />
         <div className="add-list__popup-colors">
-          {colors.map((color) => (
-            <Badge
-              onClick={() => setSelectedColor(color.id)}
-              key={color.id}
-              color={color.name}
-              className={selectedColor === color.id && 'active'}
-            />
-          ))}
+          {colors &&
+            colors.map((color) => (
+              <Badge
+                onClick={() => setSelectedColor(color.id)}
+                key={color.id}
+                color={color.name}
+                className={selectedColor === color.id && 'active'}
+              />
+            ))}
         </div>
         <button onClick={addList} className="button">
           {isLoading ? 'Добавление...' : 'Добавить'}

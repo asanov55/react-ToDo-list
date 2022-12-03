@@ -181,7 +181,7 @@ function App() {
       <div className="todo__tasks">
         <Routes>
           <Route
-            path="/"
+            path=""
             element={
               <>
                 {lists &&
